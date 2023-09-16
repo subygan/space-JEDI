@@ -110,6 +110,19 @@ function updateDebris() {
                                 var tleLine3 = obj.l[i][3]; // color
                                 var tleLine4 = obj.l[i][4]; //size
 
+                                if (tleLine3 === 'green') {
+                                    debrisData.push({
+                                    name: '',
+                                    lat: parseFloat(tleName),
+                                    lng: parseFloat(tleLine1),
+                                    alt: parseFloat(tleLine2),
+                                    // we have not radius data, so we use a (adecuate) random value
+                                    radius: 0.5,
+                                    color: tleLine3,
+                                });
+                                    continue;
+                                }
+
                                 var satrec = satellite.twoline2satrec(tleLine1, tleLine2);
 
                                 if (satrec.error) {
@@ -145,7 +158,7 @@ function updateDebris() {
                                     satrec: satrec
                                 });
 
-                                //console.log(debrisData);
+                                console.log(debrisData);
                             }
 
                             elStatus.innerText = 'Drawing elements...';

@@ -1,5 +1,7 @@
 import os
-from flask import Flask, Response
+from flask import Flask, Response, jsonify
+from mid_mapper import main_midder
+import json
 
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 APP_DIR = os.path.dirname(CUR_DIR)
@@ -34,10 +36,23 @@ def favicon_ico():
 def favicon_png():
     return get_file_contents('favicon96.png', content_type='image/png')
 
+import execjs
+
+def execute_js_and_capture_logs(js_code):
+    ctx = execjs.compile(js_code)
+    logs = ctx.call("updateDebris")
+    return logs
+
 @app.route('/api/latest.json', methods=['GET', 'POST'])
 def latest_tle():
-    return get_file_contents('api/latest.json', content_type='application/json')
-
+    filename = os.path.join(APP_DIR, 'pub', 'api/temp.js')
+    all_data = get_file_contents('api/latest.json', content_type='application/json')
+    # return all_data
+    paths = main_midder(filename)
+    data_dict = json.loads(all_data.data.decode('utf-8'))
+    data_dict['l'].extend(paths)
+    response = jsonify(data_dict)
+    return response
 
 def get_file_contents(filename, content_type=''):
     try:
