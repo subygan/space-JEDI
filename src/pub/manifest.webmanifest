@@ -1,0 +1,13 @@
+{
+    "name": "Space Trash Live",
+    "short_name": "spacetrash.live",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Open source web application for real-time visualization of space debris",
+    "icons": [{
+        "src": "favicon96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+    }]
+}

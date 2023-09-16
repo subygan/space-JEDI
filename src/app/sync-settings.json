@@ -1,0 +1,26 @@
+{
+    "datasources": [
+        {
+            "type": "tle_file",
+            "local": false,
+            "path": "https://celestrak.org/NORAD/elements/gp.php?GROUP=cosmos-2251-debris&FORMAT=tle"
+        },
+        {
+            "type": "tle_file",
+            "local": false,
+            "path": "https://celestrak.org/NORAD/elements/gp.php?GROUP=iridium-33-debris&FORMAT=tle"
+        },
+        {
+            "type": "tle_file",
+            "local": false,
+            "path": "https://celestrak.org/NORAD/elements/gp.php?GROUP=starlink&FORMAT=tle"
+        },
+        {
+            "type": "tle_file",
+            "local": false,
+            "path": "https://celestrak.org/NORAD/elements/gp.php?GROUP=orbcomm&FORMAT=tle"
+        }
+    ],
+    "ignore_last_entries": false,
+    "download_retries": 3
+}
