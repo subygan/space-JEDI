@@ -140,7 +140,7 @@ function updateDebris() {
                                     lng: longitudeDeg,
                                     alt: altitude,
                                     // we have not radius data, so we use a (adecuate) random value
-                                    radius: Math.random() * parseFloat(tleLine4) + 0.03 * 1.5,
+                                    radius: Math.random() * 0.1 + parseFloat(tleLine4),
                                     color: tleLine3,
                                     satrec: satrec
                                 });
