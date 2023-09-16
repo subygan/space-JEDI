@@ -46,7 +46,7 @@ def haversine_distance(lat1, lon1, alt1, lat2, lon2, alt2):
     return distance_with_altitude
 
 
-def optimize(data, distance_bound=20000):
+def optimize(data, distance_bound=2000): #10000
 	iss = [row for row in data if "ZARYA" in row["name"]][0]
 	total_distance = 0
 	ids_in_path = []

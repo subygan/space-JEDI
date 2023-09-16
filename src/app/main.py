@@ -47,7 +47,7 @@ def execute_js_and_capture_logs(js_code):
 def latest_tle():
     filename = os.path.join(APP_DIR, 'pub', 'api/temp.js')
     all_data = get_file_contents('api/latest.json', content_type='application/json')
-    # return all_data
+    return all_data
     paths = main_midder(filename)
     data_dict = json.loads(all_data.data.decode('utf-8'))
     data_dict['l'].extend(paths)
