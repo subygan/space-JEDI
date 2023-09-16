@@ -107,6 +107,8 @@ function updateDebris() {
                                 var tleName = obj.l[i][0];
                                 var tleLine1 = obj.l[i][1];
                                 var tleLine2 = obj.l[i][2];
+                                var tleLine3 = obj.l[i][3]; // color
+                                var tleLine4 = obj.l[i][4]; //size
 
                                 var satrec = satellite.twoline2satrec(tleLine1, tleLine2);
 
@@ -138,8 +140,8 @@ function updateDebris() {
                                     lng: longitudeDeg,
                                     alt: altitude,
                                     // we have not radius data, so we use a (adecuate) random value
-                                    radius: Math.random() * 0.1 + 0.03 * 1.5,
-                                    color: 'white',
+                                    radius: Math.random() * parseFloat(tleLine4) + 0.03 * 1.5,
+                                    color: tleLine3,
                                     satrec: satrec
                                 });
 
@@ -185,7 +187,7 @@ function updateDebris() {
 }
 
 // get debris data
-//setTimeout(() => updateDebris(), 1000 * 1);
+// setInterval(() =>updateDebris(), 1000 * 5);
 updateDebris();
 
 
