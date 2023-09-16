@@ -46,7 +46,7 @@ def haversine_distance(lat1, lon1, alt1, lat2, lon2, alt2):
     return distance_with_altitude
 
 
-def optimize(data, distance_bound=200):
+def optimize(data, distance_bound=10000):
 	iss = [row for row in data if "ZARYA" in row["name"]][0]
 	total_distance = 0
 	ids_in_path = []
@@ -57,7 +57,7 @@ def optimize(data, distance_bound=200):
 		points = [row for row in data if row["id"] not in ids_in_path]
 		points = [p for p in points if p['color']=='white']
 		for point in points:
-			d = [((point["lat"]-p["lat"])**2+(point["lng"]-p["lng"])**2+(point["alt"]-p["alt"])**2) for p in curr_path]
+			d = [haversine_distance(point['lat'], point['lng'], point['alt'], p['lat'], p['lng'], p['alt']) for p in curr_path]
 			minimal_distance_to_path = min(d)
 			closest_index_in_current_path = d.index(minimal_distance_to_path)
 			distances_of_non_path_points.append(minimal_distance_to_path)
@@ -76,6 +76,7 @@ import numpy as np
 
 def add_intermediate_nodes(points, max_distance=1.0):
     interpolated_points = [points[0]]
+    points.append(points[0])
     
     for i in range(len(points) - 1):
         start_point = np.array(points[i])
@@ -96,6 +97,58 @@ def add_intermediate_nodes(points, max_distance=1.0):
         
         interpolated_points.append(end_point.tolist())
     
+    return interpolated_points
+
+def great_circle_interpolation_with_max_distance(points, max_distance=1.0):
+    # Earth's radius in kilometers
+    earth_radius = 6371
+
+    interpolated_points = [points[0]]
+
+    for i in range(len(points) - 1):
+        lat0, lon0, alt0 = points[i]
+        lat1, lon1, alt1 = points[i + 1]
+
+        # Convert latitude and longitude from degrees to radians
+        lat0 = math.radians(lat0)
+        lon0 = math.radians(lon0)
+        lat1 = math.radians(lat1)
+        lon1 = math.radians(lon1)
+
+        # Calculate the angular distance between the two points
+        angular_distance = math.acos(
+            math.sin(lat0) * math.sin(lat1) +
+            math.cos(lat0) * math.cos(lat1) * math.cos(lon1 - lon0)
+        )
+
+        # Calculate the number of intermediate points needed
+        num_intermediates = int(math.ceil(angular_distance * earth_radius / max_distance))
+
+        if num_intermediates > 0:
+            for j in range(1, num_intermediates + 1):
+                alpha = j / (num_intermediates + 1)
+                lat = math.asin(
+                    math.sin((1 - alpha) * lat0) * math.cos(alpha * lat1) +
+                    math.cos((1 - alpha) * lat0) * math.sin(alpha * lat1) * math.cos(angular_distance)
+                )
+                lon_diff = math.atan2(
+                    math.sin(alpha * lon1 - (1 - alpha) * lon0) * math.sin(angular_distance),
+                    math.cos((1 - alpha) * lat0) * math.cos(alpha * lat1) -
+                    math.sin((1 - alpha) * lat0) * math.sin(alpha * lat1) * math.cos(angular_distance)
+                )
+                lon = lon0 + lon_diff
+
+                # Calculate altitude (linear interpolation)
+                alt = alt0 + alpha * (alt1 - alt0)
+
+                # Convert latitude and longitude back to degrees
+                lat = math.degrees(lat)
+                lon = math.degrees(lon)
+
+                interpolated_points.append((lat, lon, alt))
+
+        interpolated_points.append((lat1, lon1, alt1))
+
     return interpolated_points
 
 def main_midder(filename):
