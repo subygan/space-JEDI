@@ -22,12 +22,8 @@ def download_data():
 	stations = download_url(url_stations)
 	stations_processed = []
 	for i, tle in enumerate(stations):
-		if i==0:
-			tle.append("yellow")
-			tle.append("3.5")
-		else:
-			tle.append("purple")
-			tle.append("1.5")
+		tle.append("purple")
+		tle.append("1.5")
 		stations_processed.append(tle)
 
 	satellites = download_url(url_active_satellites)
