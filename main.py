@@ -1,15 +1,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-components.html('''
-<style>
-body {
-background-image: url("https://cdn.pixabay.com/photo/2020/05/25/22/49/space-5220743_960_720.png");
-background-size: cover;
-}
-</style>
-''')
-
 st.sidebar.header('Trip Parameters')
 max_time = st.sidebar.slider('Max Time for Trip (hours)', 1, 24, 12)
 max_distance = st.sidebar.slider('Max Distance Traveled (km)', 10, 500, 100)
