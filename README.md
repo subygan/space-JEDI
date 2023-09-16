@@ -1,5 +1,6 @@
-# [spacetrash.live](https://spacetrash.live)
+# JEDI (Junk Elimination and Debris Interception)
 Open source web application for real-time visualization of space debris. 
+And plotting an optimal path to collect all debris
 Ability to synchronize local data sources through TLE files.
 
 #### The application is structured as follows:
