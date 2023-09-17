@@ -8,6 +8,14 @@
 
 Imagine a future where our skies are free from the peril of dangerous space debris, where accidents caused by space debris collisions are almost non-existent. Currently, there are approximately 23,000 pieces of debris larger than a softball orbiting the Earth, hurtling through space at speeds of up to 17,500 mph. Even a relatively small piece of orbital debris can pose a significant threat to satellites and spacecraft. Moreover, the number of these objects is increasing daily, highlighting the urgency of addressing this issue.
 
+### The Space Debris Market: A $1.2 Trillion Opportunity
+
+One of the key aspects to consider in addressing the space debris problem is the potential economic impact. The space debris market is worth over $1.2 trillion, and this figure continues to grow as the space industry expands. This market includes various sectors such as debris removal, satellite protection, and space traffic management.
+
+As we tackle the challenge of space debris, not only are we safeguarding our space infrastructure, but we are also tapping into a massive economic opportunity that can drive innovation and growth in the space industry.
+
+Join us in exploring the future of space debris management and the immense potential it holds for both safety and economic prosperity.
+
 ## What it does
 
 **Junk Elimination and Debris Interception (JEDI)** is a revolutionary solution designed to predict the future positions of satellites and plot optimal flight plans for space garbage collectors. By continuously tracking and analyzing real-time data from NASA, JEDI is able to effectively monitor and manage objects in Earth's orbit.
@@ -53,9 +61,9 @@ Our vision for the future of JEDI includes:
 
 ## Team Info
 
-- **Suriya - sayyampe**
-- **Aman - apriyans**
-- **Yash - ymaurya**
+- **[Suriya Ganesh](https://www.linkedin.com/in/suriya-ganesh/) - sayyampe**
+- **[Aman Priyanshu](https://www.linkedin.com/in/aman-priyanshu/) - apriyans**
+- **[Yash Maurya](https://www.linkedin.com/in/yashmaurya/) - ymaurya**
 
 #### The application is structured as follows:
 - A [program](src/app/sync_task.py) to sync [data sources](src/app/sync-settings.json)
