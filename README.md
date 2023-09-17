@@ -2,6 +2,8 @@
 
 [![Demo](/space-jedi.gif)](https://www.youtube.com/watch?v=HA45-t5H0x4)
 
+**Click Above for Full Demo**
+
 ## Inspiration
 
 Imagine a future where our skies are free from the peril of dangerous space debris, where accidents caused by space debris collisions are almost non-existent. Currently, there are approximately 23,000 pieces of debris larger than a softball orbiting the Earth, hurtling through space at speeds of up to 17,500 mph. Even a relatively small piece of orbital debris can pose a significant threat to satellites and spacecraft. Moreover, the number of these objects is increasing daily, highlighting the urgency of addressing this issue.
