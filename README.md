@@ -1,4 +1,4 @@
-# Space-JEDI (Junk Elimination and Debris Interception)
+# Space-JEDI (Junk Elimination and Debris Interception) <img src="./logo.gif" alt="Logo" width="60">
 
 [![Demo](/space-jedi.gif)](https://www.youtube.com/watch?v=HA45-t5H0x4)
 
