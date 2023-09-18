@@ -1,0 +1,4 @@
+name: jedi
+channels:
+  - defaults
+prefix: /home/yash/miniconda3/envs/jedi
