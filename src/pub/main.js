@@ -62,7 +62,7 @@ function startAutorotation() {
     }
 }
 
-//startAutorotation();
+startAutorotation();
 
 // function to stop auto-rotation
 function stopAutorotation() {
@@ -112,14 +112,14 @@ function updateDebris() {
 
                                 if (tleLine3 === 'green') {
                                     debrisData.push({
-                                    name: '',
-                                    lat: parseFloat(tleName),
-                                    lng: parseFloat(tleLine1),
-                                    alt: parseFloat(tleLine2),
-                                    // we have not radius data, so we use a (adecuate) random value
-                                    radius: 0.5,
-                                    color: tleLine3,
-                                });
+                                        name: '',
+                                        lat: parseFloat(tleName),
+                                        lng: parseFloat(tleLine1),
+                                        alt: parseFloat(tleLine2),
+                                        // we have not radius data, so we use a (adecuate) random value
+                                        radius: 0.5,
+                                        color: tleLine3,
+                                    });
                                     continue;
                                 }
 
@@ -168,7 +168,7 @@ function updateDebris() {
                                 .customLayerData(debrisData)
                                 .customThreeObject(d => new THREE.Mesh(
                                     new THREE.SphereGeometry(d.radius),
-                                    new THREE.MeshLambertMaterial({color: d.color})
+                                    new THREE.MeshLambertMaterial({ color: d.color })
                                 ))
                                 .customThreeObjectUpdate((obj, d) => {
                                     Object.assign(obj.position, world.getCoords(d.lat, d.lng, d.alt));
@@ -187,14 +187,14 @@ function updateDebris() {
                     console.log('Unknow error.');
                 }
 
-                elStatus.innerText = 'Ready.';
+                elStatus.innerText = 'Live.';
             }
         };
         xmlhttp.send(null);
     } catch (e) {
         console.error(e);
 
-        elStatus.innerText = 'Ready.';
+        elStatus.innerText = 'Live.';
         updatingDebris = false;
     }
 }

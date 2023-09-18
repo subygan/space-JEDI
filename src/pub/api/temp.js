@@ -13,7 +13,10 @@ function updateDebris() {
 
     try {
         // Read the contents of the local 'latest.json' file
-        var latestData = fs.readFileSync('C:/Users/amanp/Downloads/HackCMU/data/hack-cmu/src/pub/api/latest.json', 'utf8');
+        // var path = document.location.pathname;
+        // var directory = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
+        // console.error('yash - ', directory);
+        var latestData = fs.readFileSync('latest.json', 'utf8');
         var obj = JSON.parse(latestData);
         //console.log(obj);
 

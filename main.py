@@ -2,6 +2,15 @@ import streamlit as st
 import streamlit.components.v1 as components
 import os
 import json
+import sys
+
+import subprocess
+
+# Run the other script
+p = subprocess.Popen([sys.executable, 'src/app/main.py'], 
+                                    stdout=subprocess.PIPE, 
+                                    stderr=subprocess.STDOUT)
+# subprocess.run(["python", "src/app/main.py"])
 
 st.sidebar.header('Set Clean-Up Quest Parameters')
 max_time = st.sidebar.slider('Upper Time Bound for Trip (hours)', 1, 6, 3)
@@ -19,7 +28,7 @@ st.write('')
 components.html('''
 <iframe
   id="unique_key_for_iframe"
-  src="http://127.0.0.1/"
+  src="http://127.0.0.1:5000/"
   height="600"
   style="width:100%;border:none;"
 ></iframe>''', height=600)
@@ -30,6 +39,7 @@ if st.sidebar.button("Submit"):
   os.system("cd src && cd pub && cd api && python mid_mapper.py")
   with open("./src/pub/api/output.json", "r") as f:
     out = json.load(f)
+  components.html("<script>{document.getElementById('iframeid').src += '';}</script>")
   st.sidebar.info("Please refresh to view the path!")
 
   col1, col2 = st.columns(2)

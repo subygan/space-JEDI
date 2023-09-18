@@ -96,7 +96,7 @@ def main_midder():
 
 if __name__ == '__main__':
 	paths, starting_point = main_midder()
-	print(paths)
+	# print(paths)
 	with open("latest.json", "r") as f:
 		data = json.load(f)
 	for i, item in enumerate(data['l']):
