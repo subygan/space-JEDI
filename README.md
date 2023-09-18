@@ -1,8 +1,8 @@
 # Space-JEDI (Junk Elimination and Debris Interception)
 
-[![Demo](/space-jedi.gif)](https://www.youtube.com/watch?v=HA45-t5H0x4)
+[![Demo](/space-jedi.gif)](https://www.youtube.com/watch?v=rhzXnvSg1ts)
 
-**[Click Above for Full Demo!](https://www.youtube.com/watch?v=HA45-t5H0x4)**
+**[Click Above for Full Demo!](https://www.youtube.com/watch?v=rhzXnvSg1ts)** 
 
 ## Inspiration
 
