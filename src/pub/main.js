@@ -62,6 +62,7 @@ function startAutorotation() {
     }
 }
 
+//Calling autorotate for globe model
 startAutorotation();
 
 // function to stop auto-rotation
