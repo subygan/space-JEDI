@@ -13,9 +13,7 @@ function updateDebris() {
 
     try {
         // Read the contents of the local 'latest.json' file
-        // var path = document.location.pathname;
-        // var directory = path.substring(path.indexOf('/'), path.lastIndexOf('/'));
-        // console.error('yash - ', directory);
+        //fixed path issue using relative path
         var latestData = fs.readFileSync('latest.json', 'utf8');
         var obj = JSON.parse(latestData);
         //console.log(obj);
