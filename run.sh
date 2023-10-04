@@ -16,4 +16,4 @@ fi
 source "$VENV_DIR"
 
 # Run the streamlit command
-streamlit run app.py
+streamlit run main.py
